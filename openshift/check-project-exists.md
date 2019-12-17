@@ -6,7 +6,7 @@ Quick and dirty, could definitely be improved. Taken [almost verbatim from Stack
 #!/usr/bin/python
 import sys
 
-if (sys.argv[1] is None):
+if (len(sys.argv) < 2):
     print("""
 Usage:
     This script is for checking which OpenShift projects from one
@@ -25,6 +25,7 @@ Usage:
 
         python check-project-exists.py 1-projects 2-projects
     """)
+    exit(1)
 
 with open(sys.argv[1]) as f_a, open(sys.argv[2]) as f_b:
     a_lines = set(f_a.read().splitlines())
